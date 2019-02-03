@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+random-image-generator,at.teamhsl.random_image_generator.Helpers,RandomImageURLHelper,118,0,10,0,28,0,9,0,4,0
+random-image-generator,at.teamhsl.random_image_generator.Helpers,RandomWordHelper,125,0,6,0,30,0,7,0,4,0
+random-image-generator,at.teamhsl.random_image_generator.RestEndpoint,MainEndpoint,14,3,0,0,4,1,1,1,1,1
+random-image-generator,at.teamhsl.random_image_generator.Model,WordURL,23,0,0,0,9,0,5,0,5,0
+random-image-generator,at.teamhsl.random_image_generator,Application,5,3,0,0,2,1,1,1,1,1

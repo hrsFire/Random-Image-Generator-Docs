@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RandomImageURLHelper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">random-image-generator</a> &gt; <a href="index.source.html" class="el_package">at.teamhsl.random_image_generator.Helpers</a> &gt; <span class="el_source">RandomImageURLHelper.java</span></div><h1>RandomImageURLHelper.java</h1><pre class="source lang-java linenums">package at.teamhsl.random_image_generator.Helpers;
+
+// Start of user code (user defined imports)
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLEncoder;
+import javax.net.ssl.HttpsURLConnection;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+// End of user code
+
+public class RandomImageURLHelper {
+	/**
+	 * Description of the property APIKEY.
+	 */
+<span class="nc" id="L20">	public String APIKEY = null;</span>
+	
+	/**
+	 * Description of the property APIURL.
+	 */
+<span class="nc" id="L25">	public String APIURL = null;</span>
+	
+	// Start of user code (user defined attributes)
+	// End of user code
+	
+
+	private static RandomImageURLHelper INSTANCE;
+	
+<span class="nc" id="L33">	private RandomImageURLHelper(){</span>
+	    // singleton
+<span class="nc" id="L35">	}</span>
+	
+	public static RandomImageURLHelper getInstance(){
+<span class="nc bnc" id="L38" title="All 2 branches missed.">	    if(INSTANCE == null){</span>
+<span class="nc" id="L39">	        INSTANCE = new RandomImageURLHelper();</span>
+	    }
+	
+<span class="nc" id="L42">	    return INSTANCE;</span>
+	}
+	
+	public static String GetRandomImageURL(String Word) throws Exception {
+		// Start of user code GetRandomImageURL
+<span class="nc" id="L47">		RandomImageURLHelper instance = getInstance();</span>
+<span class="nc" id="L48">		instance.APIURL = &quot;https://www.googleapis.com/customsearch/v1?q=&quot; + URLEncoder.encode(Word, &quot;UTF-8&quot;) + &quot;&amp;cx=000784618626346885213%3Ar14xhqlh_xc&amp;imgSize=xlarge&amp;num=1&amp;searchType=image&amp;key=&quot;;</span>
+<span class="nc" id="L49">		INSTANCE.APIKEY = &quot;AIzaSyC8BSPovw3UtoxwL9tAMfj7XcIpBoCMrXU&quot;;</span>
+		//INSTANCE.APIURL = &quot;https://www.googleapis.com/customsearch/v1?q=cat&amp;cx=000784618626346885213%3Ar14xhqlh_xc&amp;imgSize=xlarge&amp;num=1&amp;searchType=image&amp;key=&quot;;
+<span class="nc" id="L51">		URL url = new URL(instance.APIURL + instance.APIKEY);</span>
+<span class="nc" id="L52">		HttpsURLConnection con = (HttpsURLConnection) url.openConnection();</span>
+<span class="nc" id="L53">		con.setRequestMethod(&quot;GET&quot;);</span>
+<span class="nc" id="L54">		InputStreamReader isr = new InputStreamReader(con.getInputStream());</span>
+<span class="nc" id="L55">		BufferedReader br = new BufferedReader(isr);</span>
+<span class="nc" id="L56">		StringBuffer resp = new StringBuffer();</span>
+		String inp;
+
+<span class="nc bnc" id="L59" title="All 2 branches missed.">		while((inp = br.readLine()) != null) {</span>
+<span class="nc" id="L60">			resp.append(inp);</span>
+		}
+
+<span class="nc" id="L63">		isr.close();</span>
+<span class="nc" id="L64">		String respstr = resp.toString();</span>
+<span class="nc" id="L65">		JSONObject json = new JSONObject(respstr);</span>
+<span class="nc" id="L66">		return getLinkFromJSON(json);</span>
+		// End of user code
+	}
+	
+	// Start of user code (user defined operations)
+	public static String getLinkFromJSON(JSONObject json){
+<span class="nc" id="L72">		JSONArray jarr = (JSONArray) json.get(&quot;items&quot;);</span>
+
+<span class="nc bnc" id="L74" title="All 4 branches missed.">		if (jarr != null &amp;&amp; jarr.length() &gt; 0) {</span>
+<span class="nc" id="L75">			JSONObject jsonObject = jarr.getJSONObject(0);</span>
+
+<span class="nc bnc" id="L77" title="All 2 branches missed.">			if (jsonObject != null) {</span>
+<span class="nc" id="L78">				return (String) jsonObject.get(&quot;link&quot;);</span>
+			}
+		}
+<span class="nc" id="L81">		return null;</span>
+	}
+	// End of user code
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
