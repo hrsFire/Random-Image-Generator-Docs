@@ -4,22 +4,23 @@
 import at.teamhsl.random_image_generator.Helpers.RandomImageURLHelper;
 import at.teamhsl.random_image_generator.Helpers.RandomWordHelper;
 import at.teamhsl.random_image_generator.Model.WordURL;
+import org.springframework.web.bind.annotation.PathVariable;
 // End of user code
 
 @org.springframework.web.bind.annotation.RestController
-<span class="fc" id="L10">public class MainEndpoint {</span>
+<span class="fc" id="L11">public class MainEndpoint {</span>
 	// Start of user code (user defined attributes)
 	
 	// End of user code
 	
 	
-	@org.springframework.web.bind.annotation.GetMapping(&quot;/GetImageURL&quot;)
-	public at.teamhsl.random_image_generator.Model.WordURL GetImageURL() throws Exception {
+	@org.springframework.web.bind.annotation.GetMapping(&quot;/GetImageURL/{searchValue}&quot;)
+	public at.teamhsl.random_image_generator.Model.WordURL GetImageURL(@PathVariable(&quot;searchValue&quot;) String searchValue) throws Exception {
 		// Start of user code GetImageURL
-<span class="nc" id="L19">		WordURL res = new WordURL();</span>
-<span class="nc" id="L20">		res.RandomWord = RandomWordHelper.GetRandomWord();</span>
-<span class="nc" id="L21">		res.ImageURL = RandomImageURLHelper.GetRandomImageURL(res.RandomWord);</span>
-<span class="nc" id="L22">		return res;</span>
+<span class="nc" id="L20">		WordURL res = new WordURL();</span>
+<span class="nc" id="L21">		res.RandomWord = RandomWordHelper.GetRandomWord();</span>
+<span class="nc" id="L22">		res.ImageURL = RandomImageURLHelper.GetRandomImageURL(searchValue + &quot; &quot; + res.RandomWord);</span>
+<span class="nc" id="L23">		return res;</span>
 		// End of user code
 	}
 	
