@@ -1,0 +1,74 @@
+:toc: right
+:backend: html5
+:doctitle: Living Documentation
+:doctype: book
+:icons: font
+:!numbered:
+:!linkcss:
+:sectanchors:
+:sectlink:
+:docinfo:
+:source-highlighter: highlightjs
+:toclevels: 3
+:hardbreaks:
+:chapter-label: Chapter
+:version-label: Version
+
+= *Living Documentation*
+
+== *Summary*
+[cols="12*^m", options="header,footer"]
+|===
+3+|Scenarios 7+|Steps 2+|Features: 1
+
+|[green]#*Passed*#
+|[red]#*Failed*#
+|Total
+|[green]#*Passed*#
+|[red]#*Failed*#
+|[purple]#*Skipped*#
+|[maroon]#*Pending*#
+|[yellow]#*Undefined*#
+|[blue]#*Missing*#
+|Total
+|Duration
+|Status
+
+12+^|*<<Search-Images>>*
+|1
+|0
+|1
+|2
+|0
+|0
+|0
+|0
+|0
+|2
+|19s 656ms
+|[green]#*passed*#
+12+^|*Totals*
+|1|0|1|2|0|0|0|0|0|2 2+|19s 656ms
+|===
+
+== *Features*
+
+[[Search-Images, Search Images]]
+=== *Search Images*
+
+ifndef::backend-pdf[]
+minmax::Search-Images[]
+endif::[]
+****
+A user can look up his image search history.
+****
+
+==== Scenario: Lisa want's to show the image search history.
+
+==========
+Given ::
+she's logged in and on the `history` page. icon:thumbs-up[role="green",title="Passed"] [small right]#(18s 978ms)#
+Then ::
+she sees the image search history. icon:thumbs-up[role="green",title="Passed"] [small right]#(677ms)#
+==========
+
