@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 	public at.teamhsl.random_image_generator.Model.WordURL GetImageURL(@PathVariable(&quot;searchValue&quot;) String searchValue) throws Exception {
 		// Start of user code GetImageURL
 <span class="nc" id="L20">		WordURL res = new WordURL();</span>
-<span class="nc" id="L21">		res.RandomWord = RandomWordHelper.GetRandomWord();</span>
-<span class="nc" id="L22">		res.ImageURL = RandomImageURLHelper.GetRandomImageURL(searchValue + &quot; &quot; + res.RandomWord);</span>
+<span class="nc" id="L21">		res.RandomWord = searchValue + &quot; &quot; + RandomWordHelper.GetRandomWord();</span>
+<span class="nc" id="L22">		res.ImageURL = RandomImageURLHelper.GetRandomImageURL(res.RandomWord);</span>
 <span class="nc" id="L23">		return res;</span>
 		// End of user code
 	}
