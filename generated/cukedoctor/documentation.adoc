@@ -45,10 +45,10 @@
 |0
 |0
 |2
-|16s 486ms
+|06s 554ms
 |[green]#*passed*#
 12+^|*Totals*
-|1|0|1|2|0|0|0|0|0|2 2+|16s 486ms
+|1|0|1|2|0|0|0|0|0|2 2+|06s 554ms
 |===
 
 == *Features*
@@ -67,8 +67,8 @@ A user can look up his image search history.
 
 ==========
 Given ::
-she's logged in and on the `history` page. icon:thumbs-up[role="green",title="Passed"] [small right]#(16s 112ms)#
+she's logged in and on the `history` page. icon:thumbs-up[role="green",title="Passed"] [small right]#(06s 175ms)#
 Then ::
-she sees the image search history. icon:thumbs-up[role="green",title="Passed"] [small right]#(374ms)#
+she sees the image search history. icon:thumbs-up[role="green",title="Passed"] [small right]#(378ms)#
 ==========
 
