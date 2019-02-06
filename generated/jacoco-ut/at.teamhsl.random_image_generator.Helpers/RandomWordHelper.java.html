@@ -39,7 +39,7 @@ public class RandomWordHelper {
 	
 	public static String GetRandomWord() throws Exception {
 		// Start of user code GetRandomWord
-<span class="nc" id="L42">		URL url = new URL(&quot;https://random-word-api.herokuapp.com/key&quot;);</span>
+<span class="nc" id="L42">		URL url = new URL(&quot;https://random-word-fhv.herokuapp.com/key&quot;);</span>
 <span class="nc" id="L43">		HttpsURLConnection con = (HttpsURLConnection) url.openConnection();</span>
 <span class="nc" id="L44">		con.setRequestMethod(&quot;GET&quot;);</span>
 <span class="nc" id="L45">		InputStreamReader isr = new InputStreamReader(con.getInputStream());</span>
@@ -55,7 +55,7 @@ public class RandomWordHelper {
 <span class="nc" id="L55">		String apiKey = resp.toString();</span>
 
 
-<span class="nc" id="L58">		String Url = &quot;https://random-word-api.herokuapp.com/word?key=&quot; + URLEncoder.encode(apiKey, &quot;UTF-8&quot;)  + &quot;&amp;number=1&quot;;</span>
+<span class="nc" id="L58">		String Url = &quot;https://random-word-fhv.herokuapp.com/word?key=&quot; + URLEncoder.encode(apiKey, &quot;UTF-8&quot;)  + &quot;&amp;number=1&quot;;</span>
 <span class="nc" id="L59">		url = new URL(Url);</span>
 <span class="nc" id="L60">		con = (HttpsURLConnection) url.openConnection();</span>
 <span class="nc" id="L61">		con.setRequestMethod(&quot;GET&quot;);</span>
